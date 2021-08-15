@@ -12,6 +12,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+Open [http://localhost:3001](http://localhost:3001) to view JSON Server which is running on port 3001
+
+## Mock API
+
+For the purpose of this course, the Course List and Authors List is ready to be updated and saved on a API.
+JSON Server is used as the mock API (https://github.com/typicode/json-server/) and is used to mock endpoints for the courses and authors
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />

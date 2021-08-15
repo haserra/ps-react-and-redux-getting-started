@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom"; // react-router-dom is the version that works for the web
+import "bootstrap/dist/css/bootstrap.min.css"; // the right file to import CSS files is index.js, the entry point of the App
+import App from "./components/App";
+//import App from "./App";
+import "./index.css";
+import configureStore from "./redux/configureStore";
+import { Provider as ReduxProvider } from "react-redux"; // Provider is a Higher-Order component that proviedes React's store data to child components
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+// let's instantiate the store
+const store = configureStore(); // it can be useful to pass in, initial state into the store, overriding initial state passed in the reducers themselves
+
+// from now on we are good to go, so let's connect our first container component to work with redux
+
+function Hello() {
+  return <p>Hello World</p>;
+}
+
+render(
+  <ReduxProvider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </ReduxProvider>,
+  document.getElementById("app-root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
